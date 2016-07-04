@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SnackGame.PL.Monogame
+namespace SnackGame.Monogame
 {
     /// <summary>
     /// The main class.
@@ -13,8 +13,10 @@ namespace SnackGame.PL.Monogame
         [STAThread]
         private static void Main()
         {
-            using (var game = new SnakeGame())
+            using (var game = new SnackGame())
+            {
                 game.Run();
+            }
         }
     }
 }
