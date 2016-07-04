@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Configs;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SnackGame.Entities;
-using Configs;
-using Microsoft.Xna.Framework.Graphics;
 using SnackGame.Entities.Enums;
 
 namespace SnackGame.Monogame
@@ -36,61 +35,110 @@ namespace SnackGame.Monogame
                 SnackGameHelper.Update(gameTime, cell);
             }
 
-            SnackGameHelper.Validate(world);
+            SnackGameHelper.Mode(world);
         }
 
-        private static void Validate(World world)
+        private static void Mode(World world)
         {
-
-        }
-
-        public static void Update(GameTime gameTime, Cell cell)
-        {
-
-        }
-
-        public static void Update(GameTime gameTime, SnackHead head)
-        {
-            ReadKey(head);
-
-            //if (gameTime.TotalGameTime.Milliseconds > Configuration.Speed) // TODO speed
+            if (world.Rectangle.Contains(world.SnackHead.Rectangle))
             {
-                switch (head.Direction)
+                switch (world.SnackHead.Direction)
                 {
                 case Direction.Up:
-                    head.Position.Y--;
+                    world.SnackHead.Position.Y -= Configuration.SnackHeadStep.Y;
                     break;
+
                 case Direction.Right:
-                    head.Position.X++;
+                    world.SnackHead.Position.X += Configuration.SnackHeadStep.X;
                     break;
+
                 case Direction.Down:
-                    head.Position.Y++;
+                    world.SnackHead.Position.Y += Configuration.SnackHeadStep.Y;
                     break;
+
                 case Direction.Left:
-                    head.Position.X--;
+                    world.SnackHead.Position.X -= Configuration.SnackHeadStep.X;
                     break;
+
+                default:
+                    break;
+                }
+            }
+            else
+            {
+                switch (world.SnackHead.Direction)
+                {
+                case Direction.Up:
+                    world.SnackHead.Position.Y += Configuration.SnackHeadStep.Y;
+                    break;
+
+                case Direction.Right:
+                    world.SnackHead.Position.X -= Configuration.SnackHeadStep.X;
+                    break;
+
+                case Direction.Down:
+                    world.SnackHead.Position.Y -= Configuration.SnackHeadStep.Y;
+                    break;
+
+                case Direction.Left:
+                    world.SnackHead.Position.X += Configuration.SnackHeadStep.X;
+                    break;
+
                 default:
                     break;
                 }
             }
         }
 
+        public static void Update(GameTime gameTime, Cell cell)
+        {
+        }
+
+        public static void Update(GameTime gameTime, SnackHead head)
+        {
+            ReadKey(head);
+
+            {
+            }
+
+            //{
+            //    switch (head.Direction)
+            //    {
+            //    case Direction.Up:
+            //        head.Position.Y--;
+            //        break;
+            //    case Direction.Right:
+            //        head.Position.X++;
+            //        break;
+            //    case Direction.Down:
+            //        head.Position.Y++;
+            //        break;
+            //    case Direction.Left:
+            //        head.Position.X--;
+            //        break;
+            //    default:
+            //        break;
+            //    }
+            //}
+        }
+
         #endregion update
 
         #region draw
+
         public static void Draw(SpriteBatch spriteBatch, World world)
         {
-            Draw(spriteBatch, world.SnackHead);
-
             foreach (var cell in world.Cells)
             {
                 Draw(spriteBatch, cell);
             }
+
+            Draw(spriteBatch, world.SnackHead);
         }
 
         public static void Draw(SpriteBatch spriteBatch, Cell cell)
         {
-
+            spriteBatch.Draw(cell.Textures[cell.State], cell.Rectangle, Color.White);
         }
 
         public static void Draw(SpriteBatch spriteBatch, SnackHead snackHead)

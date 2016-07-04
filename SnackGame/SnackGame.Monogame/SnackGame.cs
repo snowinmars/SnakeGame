@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SnackGame.Entities;
 using SnackGame.Entities.Enums;
+using System;
 
 namespace SnackGame.Monogame
 {
@@ -65,7 +66,7 @@ namespace SnackGame.Monogame
 
             Configuration.Init(this.GraphicsDevice);
 
-            SnackHead snackHead = new SnackHead(new Position(Configuration.WorldSize.X / 2, Configuration.WorldSize.Y / 2), Configuration.SnackHeadTextures);
+            SnackHead snackHead = new SnackHead(new Position(Configuration.WorldSize.X / (2 * Configuration.CellSize.X) + Configuration.CellMagrin.X, Configuration.WorldSize.Y / (2 * Configuration.CellSize.Y) + Configuration.CellMagrin.Y), Configuration.SnackHeadTextures);
             Cell[,] cells = GenerateWorld();
 
             this.World = new World(snackHead, cells);
@@ -75,11 +76,14 @@ namespace SnackGame.Monogame
 
         private static Cell[,] GenerateWorld()
         {
-            Cell[,] cells = new Cell[Configuration.WorldSize.X, Configuration.WorldSize.Y];
+            int x = Configuration.WorldSize.X / Configuration.CellSize.X;
+            int y = Configuration.WorldSize.Y / Configuration.CellSize.Y;
 
-            for (int i = 0; i < Configuration.WorldSize.X; i++)
+            Cell[,] cells = new Cell[x, y];
+
+            for (int i = 0; i < x; i++)
             {
-                for (int j = 0; j < Configuration.WorldSize.Y; j++)
+                for (int j = 0; j < y; j++)
                 {
                     cells[i, j] = new Cell(new Position(i * (Configuration.CellSize.X + Configuration.CellMagrin.X),
                                                         j * (Configuration.CellSize.Y + Configuration.CellMagrin.Y)),

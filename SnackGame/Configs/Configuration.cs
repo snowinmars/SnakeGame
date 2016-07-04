@@ -17,13 +17,16 @@ namespace Configs
             Configuration.WorldSize = new Point(800, 600);
             Configuration.CellSize = new Point(20, 20);
             Configuration.CellMagrin = new Point(1, 1);
-            Speed = 100;
+            Configuration.GameSpeed = 2;
+            Configuration.SnackHeadStep = new Point(Configuration.CellSize.X + Configuration.CellMagrin.X,
+                                                    Configuration.CellSize.Y + Configuration.CellMagrin.Y);
         }
 
         public static Point CellMagrin { get; set; }
         public static Point CellSize { get; set; }
         public static Point WorldSize { get; set; }
-        public static int Speed { get; set; }
+        public static int GameSpeed { get; set; }
+        public static Point SnackHeadStep { get; set; }
 
         public static void Init(GraphicsDevice graphicsDevice)
         {

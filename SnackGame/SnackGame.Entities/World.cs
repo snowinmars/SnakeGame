@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
+using Configs;
 
 namespace SnackGame.Entities
 {
@@ -24,5 +25,9 @@ namespace SnackGame.Entities
         public SnackHead SnackHead { get; set; }
 
         public Cell[,] Cells { get; private set; }
+
+        public Rectangle Rectangle
+            => new Rectangle(0, 0, Configuration.WorldSize.X ,
+                                    Configuration.WorldSize.Y);
     }
 }
