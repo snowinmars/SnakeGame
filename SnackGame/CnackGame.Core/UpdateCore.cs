@@ -84,17 +84,25 @@ namespace CnackGame.Core
 
             if (!found)
             {
-                world.Cells[this.Random.Next(1, world.Cells.GetLength(0) - 1), this.Random.Next(1, world.Cells.GetLength(1) - 1)].State = CellState.PositivePrice;
+                Cell cell = world.Cells[this.Random.Next(1, world.Cells.GetLength(0) - 1), this.Random.Next(1, world.Cells.GetLength(1) - 1)];
+
+                // if cell is occupied
+                while (cell.State == CellState.Snake)
+                {
+                    cell = world.Cells[this.Random.Next(1, world.Cells.GetLength(0) - 1), this.Random.Next(1, world.Cells.GetLength(1) - 1)];
+                }
+
+                cell.State = CellState.PositivePrice;
             }
             else
             {
                 // TODO to snake prop
-                int hor = world.SnackHead.Position.X / Configuration.CellSize.X;
-                int ver = world.SnackHead.Position.Y / Configuration.CellSize.Y;
+                int hor = (int)Math.Floor((float)world.SnackHead.Position.X / (Configuration.CellSize.X + 1));
+                int ver = (int)Math.Floor((float)world.SnackHead.Position.Y / (Configuration.CellSize.Y + 1));
 
                 if (hor == i && ver == j)
                 {
-                    world.SnakeIncrease(hor, ver, 1);
+                    world.SnakeIncrease(hor, ver, 40);
                 }
             }
         }
