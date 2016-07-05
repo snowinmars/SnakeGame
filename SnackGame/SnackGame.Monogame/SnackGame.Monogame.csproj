@@ -42,7 +42,6 @@
     <Compile Include="SnackGame.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SnackGameHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="OpenTK">
@@ -67,6 +66,10 @@
     <MonoGameContentReference Include="Content\Content.mgcb" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CnackGame.Core\CnackGame.Core.csproj">
+      <Project>{6A7F057D-2902-4CEF-B741-E965A53C3B64}</Project>
+      <Name>CnackGame.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Configs\Configs.csproj">
       <Project>{eb3e046f-a979-4c97-b83e-1860565d4f81}</Project>
       <Name>Configs</Name>

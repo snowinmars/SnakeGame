@@ -1,14 +1,6 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework.Graphics;
 using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework;
-using SnackGame.Entities.Enums;
+using SnackGame.Enums;
 
 namespace SnackGame.Entities
 {

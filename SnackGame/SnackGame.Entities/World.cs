@@ -1,7 +1,6 @@
-﻿using Microsoft.Xna.Framework;
-using SnackGame.Entities.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using SnackGame.Enums;
 
 namespace SnackGame.Entities
 {
@@ -26,7 +25,7 @@ namespace SnackGame.Entities
 
         public SnackHead SnackHead { get; set; }
 
-        public Cell[,] Cells { get; private set; }
+        public Cell[,] Cells { get; }
 
         public Queue<Cell> SnakeBody { get; set; }
 
@@ -41,13 +40,14 @@ namespace SnackGame.Entities
         public void SnakeOn(int snakeHor, int snakeVer)
         {
             this.Cells[snakeHor, snakeVer].State = CellState.Snake;
-            if (SnakeBody.Count != 0)
+
+            if (this.SnakeBody.Count != 0)
             {
-                Cell cell = SnakeBody.Dequeue();
+                Cell cell = this.SnakeBody.Dequeue();
                 cell.State = CellState.None;
             }
 
-            SnakeBody.Enqueue(this.Cells[snakeHor, snakeVer]);
+            this.SnakeBody.Enqueue(this.Cells[snakeHor, snakeVer]);
         }
     }
 }

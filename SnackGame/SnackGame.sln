@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configs", "Configs\Configs.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackGame.Enums", "SnackGame.Enums\SnackGame.Enums.csproj", "{8E4BCFC3-5167-45A6-8241-A3976DBDF98E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnackGame.Core", "CnackGame.Core\CnackGame.Core.csproj", "{6A7F057D-2902-4CEF-B741-E965A53C3B64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,6 +52,14 @@ Global
 		{8E4BCFC3-5167-45A6-8241-A3976DBDF98E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8E4BCFC3-5167-45A6-8241-A3976DBDF98E}.Release|x86.ActiveCfg = Release|Any CPU
 		{8E4BCFC3-5167-45A6-8241-A3976DBDF98E}.Release|x86.Build.0 = Release|Any CPU
+		{6A7F057D-2902-4CEF-B741-E965A53C3B64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A7F057D-2902-4CEF-B741-E965A53C3B64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A7F057D-2902-4CEF-B741-E965A53C3B64}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6A7F057D-2902-4CEF-B741-E965A53C3B64}.Debug|x86.Build.0 = Debug|Any CPU
+		{6A7F057D-2902-4CEF-B741-E965A53C3B64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A7F057D-2902-4CEF-B741-E965A53C3B64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A7F057D-2902-4CEF-B741-E965A53C3B64}.Release|x86.ActiveCfg = Release|Any CPU
+		{6A7F057D-2902-4CEF-B741-E965A53C3B64}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
