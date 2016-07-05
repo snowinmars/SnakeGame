@@ -11,7 +11,7 @@ namespace CnackGame.Core
     {
         #region Private Fields
 
-        private readonly Keys[] AllowedKeys = {
+        private readonly Keys[] allowedKeys = {
                                                         Keys.Up,
                                                         Keys.Down,
                                                         Keys.Left,
@@ -43,20 +43,20 @@ namespace CnackGame.Core
 
         public void Update(GameTime gameTime, World world)
         {
-            Update(gameTime, world.SnackHead);
+            this.Update(gameTime, world.SnackHead);
 
             foreach (var cell in world.Cells)
             {
-                Update(gameTime, cell);
+                this.Update(gameTime, cell);
             }
 
             TimeSpan time = gameTime.TotalGameTime;
-            double diffTime = time.TotalMilliseconds - previousTime.TotalMilliseconds;
+            double diffTime = time.TotalMilliseconds - this.previousTime.TotalMilliseconds;
 
             if (diffTime > Configuration.GameSpeed)
             {
-                Move(world);
-                previousTime = time;
+                this.Move(world);
+                this.previousTime = time;
             }
 
             bool found = false;
@@ -84,7 +84,7 @@ namespace CnackGame.Core
 
             if (!found)
             {
-                world.Cells[Random.Next(1, world.Cells.GetLength(0) - 1), Random.Next(1, world.Cells.GetLength(1) - 1)].State = CellState.PositivePrice;
+                world.Cells[this.Random.Next(1, world.Cells.GetLength(0) - 1), this.Random.Next(1, world.Cells.GetLength(1) - 1)].State = CellState.PositivePrice;
             }
             else
             {
@@ -105,7 +105,7 @@ namespace CnackGame.Core
 
         public void Update(GameTime gameTime, SnackHead head)
         {
-            ReadKey(head);
+            this.ReadKey(head);
         }
 
         #endregion Public Methods
@@ -115,8 +115,8 @@ namespace CnackGame.Core
         private void Move(World world)
         {
             // TODO to snake prop
-            int hor = world.SnackHead.Position.X / Configuration.CellSize.X;
-            int ver = world.SnackHead.Position.Y / Configuration.CellSize.Y;
+            int hor = (int)Math.Floor((float)world.SnackHead.Position.X / (Configuration.CellSize.X + 1));
+            int ver = (int)Math.Floor((float)world.SnackHead.Position.Y / (Configuration.CellSize.Y + 1));
 
             world.SnakeOn(hor, ver);
 
@@ -156,10 +156,9 @@ namespace CnackGame.Core
         {
             KeyboardState state = Keyboard.GetState();
 
-            foreach (var key in AllowedKeys)
+            foreach (var key in this.allowedKeys)
             {
-                if (state.IsKeyUp(key) &&
-                    previousState.IsKeyDown(key))
+                if (state.IsKeyUp(key) && this.previousState.IsKeyDown(key))
                 {
                     // ReSharper disable once SwitchStatementMissingSomeCases
                     // due to this are the only keys I'm interested in
@@ -184,7 +183,7 @@ namespace CnackGame.Core
                 }
             }
 
-            previousState = state;
+            this.previousState = state;
         }
 
         #endregion Private Methods
