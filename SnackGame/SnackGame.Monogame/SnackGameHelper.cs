@@ -40,30 +40,47 @@ namespace SnackGame.Monogame
 
             if (time.TotalMilliseconds - pr.TotalMilliseconds > Configuration.GameSpeed)
             {
-                SnackGameHelper.Mode(world);
+                SnackGameHelper.Move(world);
 
                 pr = time;
             }
         }
 
-        private static void Mode(World world)
+        private static void Move(World world)
         {
+            int hor = world.SnackHead.Position.X / Configuration.CellSize.X;
+            int ver = world.SnackHead.Position.Y / Configuration.CellSize.Y;
+
+            world.SnakeOn(hor, ver);
+
             switch (world.SnackHead.Direction)
             {
             case Direction.Up:
-                world.SnackHead.Position.Y -= Configuration.SnackHeadStep.Y;
+                if (world.Cells[hor, ver - 1].State != CellState.Border)
+                {
+                    world.SnackHead.Position.Y -= Configuration.SnackHeadStep.Y;
+                }
                 break;
 
             case Direction.Right:
-                world.SnackHead.Position.X += Configuration.SnackHeadStep.X;
+                if (world.Cells[hor + 1, ver].State != CellState.Border)
+                {
+                    world.SnackHead.Position.X += Configuration.SnackHeadStep.X;
+                }
                 break;
 
             case Direction.Down:
-                world.SnackHead.Position.Y += Configuration.SnackHeadStep.Y;
+                if (world.Cells[hor, ver + 1].State != CellState.Border)
+                {
+                    world.SnackHead.Position.Y += Configuration.SnackHeadStep.Y;
+                }
                 break;
 
             case Direction.Left:
-                world.SnackHead.Position.X -= Configuration.SnackHeadStep.X;
+                if (world.Cells[hor - 1, ver].State != CellState.Border)
+                {
+                    world.SnackHead.Position.X -= Configuration.SnackHeadStep.X;
+                }
                 break;
 
             default:

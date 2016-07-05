@@ -72,13 +72,14 @@ namespace SnackGame.Monogame
 
             this.World = new World(snackHead, cells);
 
+
             // use this.Content to load your game content here
         }
 
         private static Cell[,] GenerateWorld()
         {
-            int x = Configuration.WorldSize.X / Configuration.CellSize.X;
-            int y = Configuration.WorldSize.Y / Configuration.CellSize.Y;
+            int x = Configuration.WorldSize.X ;
+            int y = Configuration.WorldSize.Y ;
 
             Cell[,] cells = new Cell[x, y];
 
