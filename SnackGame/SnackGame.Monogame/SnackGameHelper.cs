@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SnackGame.Entities;
 using SnackGame.Entities.Enums;
+using System;
 
 namespace SnackGame.Monogame
 {
@@ -35,64 +36,46 @@ namespace SnackGame.Monogame
                 SnackGameHelper.Update(gameTime, cell);
             }
 
-            SnackGameHelper.Mode(world);
+            TimeSpan time = gameTime.TotalGameTime;
+
+            if (time.TotalMilliseconds - pr.TotalMilliseconds > Configuration.GameSpeed)
+            {
+                SnackGameHelper.Mode(world);
+
+                pr = time;
+            }
         }
 
         private static void Mode(World world)
         {
-            if (world.Rectangle.Contains(world.SnackHead.Rectangle))
+            switch (world.SnackHead.Direction)
             {
-                switch (world.SnackHead.Direction)
-                {
-                case Direction.Up:
-                    world.SnackHead.Position.Y -= Configuration.SnackHeadStep.Y;
-                    break;
+            case Direction.Up:
+                world.SnackHead.Position.Y -= Configuration.SnackHeadStep.Y;
+                break;
 
-                case Direction.Right:
-                    world.SnackHead.Position.X += Configuration.SnackHeadStep.X;
-                    break;
+            case Direction.Right:
+                world.SnackHead.Position.X += Configuration.SnackHeadStep.X;
+                break;
 
-                case Direction.Down:
-                    world.SnackHead.Position.Y += Configuration.SnackHeadStep.Y;
-                    break;
+            case Direction.Down:
+                world.SnackHead.Position.Y += Configuration.SnackHeadStep.Y;
+                break;
 
-                case Direction.Left:
-                    world.SnackHead.Position.X -= Configuration.SnackHeadStep.X;
-                    break;
+            case Direction.Left:
+                world.SnackHead.Position.X -= Configuration.SnackHeadStep.X;
+                break;
 
-                default:
-                    break;
-                }
-            }
-            else
-            {
-                switch (world.SnackHead.Direction)
-                {
-                case Direction.Up:
-                    world.SnackHead.Position.Y += Configuration.SnackHeadStep.Y;
-                    break;
-
-                case Direction.Right:
-                    world.SnackHead.Position.X -= Configuration.SnackHeadStep.X;
-                    break;
-
-                case Direction.Down:
-                    world.SnackHead.Position.Y -= Configuration.SnackHeadStep.Y;
-                    break;
-
-                case Direction.Left:
-                    world.SnackHead.Position.X += Configuration.SnackHeadStep.X;
-                    break;
-
-                default:
-                    break;
-                }
+            default:
+                break;
             }
         }
 
         public static void Update(GameTime gameTime, Cell cell)
         {
         }
+
+        private static TimeSpan pr;
 
         public static void Update(GameTime gameTime, SnackHead head)
         {

@@ -17,7 +17,7 @@ namespace Configs
             Configuration.WorldSize = new Point(800, 600);
             Configuration.CellSize = new Point(20, 20);
             Configuration.CellMagrin = new Point(1, 1);
-            Configuration.GameSpeed = 2;
+            Configuration.GameSpeed = 700;
             Configuration.SnackHeadStep = new Point(Configuration.CellSize.X + Configuration.CellMagrin.X,
                                                     Configuration.CellSize.Y + Configuration.CellMagrin.Y);
         }
