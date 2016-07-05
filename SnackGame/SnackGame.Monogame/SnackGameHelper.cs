@@ -176,12 +176,12 @@ namespace SnackGame.Monogame
 
         public static void Draw(SpriteBatch spriteBatch, Cell cell)
         {
-            spriteBatch.Draw(cell.Textures[cell.State], cell.Rectangle, Color.White);
+            spriteBatch.Draw(cell.Textures[cell.State], new Rectangle(cell.Position.X, cell.Position.Y, Configuration.CellSize.X, Configuration.CellSize.Y), Color.White);
         }
 
         public static void Draw(SpriteBatch spriteBatch, SnackHead snackHead)
         {
-            spriteBatch.Draw(snackHead.Textures[snackHead.Direction], snackHead.Rectangle, Color.White);
+            spriteBatch.Draw(snackHead.Textures[snackHead.Direction], new Rectangle(snackHead.Position.X, snackHead.Position.Y, Configuration.CellSize.X, Configuration.CellSize.Y), Color.White);
         }
 
         #endregion draw

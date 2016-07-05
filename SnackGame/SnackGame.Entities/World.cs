@@ -1,5 +1,4 @@
-﻿using Configs;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using SnackGame.Entities.Enums;
 using System;
 using System.Collections.Generic;
@@ -28,10 +27,6 @@ namespace SnackGame.Entities
         public SnackHead SnackHead { get; set; }
 
         public Cell[,] Cells { get; private set; }
-
-        public Rectangle Rectangle
-            => new Rectangle(0, 0, Configuration.WorldSize.X * (Configuration.CellSize.X + Configuration.CellMagrin.X),
-                                    Configuration.WorldSize.Y * (Configuration.CellSize.Y + Configuration.CellMagrin.Y));
 
         public Queue<Cell> SnakeBody { get; set; }
 

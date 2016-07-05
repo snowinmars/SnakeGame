@@ -49,10 +49,6 @@
     <Compile Include="World.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Configs\Configs.csproj">
-      <Project>{EB3E046F-A979-4C97-B83E-1860565D4F81}</Project>
-      <Name>Configs</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SnackGame.Enums\SnackGame.Enums.csproj">
       <Project>{8E4BCFC3-5167-45A6-8241-A3976DBDF98E}</Project>
       <Name>SnackGame.Enums</Name>

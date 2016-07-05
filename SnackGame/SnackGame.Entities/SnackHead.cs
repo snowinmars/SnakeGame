@@ -9,7 +9,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework;
 using SnackGame.Entities.Enums;
-using Configs;
 
 namespace SnackGame.Entities
 {
@@ -34,7 +33,5 @@ namespace SnackGame.Entities
         public IDictionary<Direction, Texture2D> Textures { get; set; }
 
         public Direction Direction { get; set; }
-        public Rectangle Rectangle =>
-            new Rectangle(this.Position.X, this.Position.Y, Configuration.CellSize.X, Configuration.CellSize.Y);
     }
 }

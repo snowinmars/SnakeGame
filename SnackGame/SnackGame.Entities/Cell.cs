@@ -1,5 +1,4 @@
-﻿using Configs;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using SnackGame.Entities.Enums;
 using System;
@@ -20,9 +19,6 @@ namespace SnackGame.Entities
         }
 
         public Position Position { get; set; }
-
-        public Rectangle Rectangle
-            => new Rectangle(this.Position.X, this.Position.Y, Configuration.CellSize.X, Configuration.CellSize.Y);
 
         public CellState State { get; set; }
 

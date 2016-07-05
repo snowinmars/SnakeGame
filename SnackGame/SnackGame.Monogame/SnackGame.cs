@@ -72,7 +72,6 @@ namespace SnackGame.Monogame
 
             this.World = new World(snackHead, cells);
 
-
             // use this.Content to load your game content here
         }
 
