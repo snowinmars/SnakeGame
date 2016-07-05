@@ -71,6 +71,8 @@ namespace SnackGame.Monogame
             }
         }
 
+        public static Random Random { get; } = new Random();
+
         public static void Update(GameTime gameTime, Cell cell)
         {
         }
@@ -80,9 +82,6 @@ namespace SnackGame.Monogame
         public static void Update(GameTime gameTime, SnackHead head)
         {
             ReadKey(head);
-
-            {
-            }
 
             //{
             //    switch (head.Direction)

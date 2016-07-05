@@ -66,8 +66,9 @@ namespace SnackGame.Monogame
 
             Configuration.Init(this.GraphicsDevice);
 
-            SnackHead snackHead = new SnackHead(new Position(Configuration.WorldSize.X / (2 * Configuration.CellSize.X) + Configuration.CellMagrin.X, Configuration.WorldSize.Y / (2 * Configuration.CellSize.Y) + Configuration.CellMagrin.Y), Configuration.SnackHeadTextures);
             Cell[,] cells = GenerateWorld();
+
+            SnackHead snackHead = new SnackHead(cells[cells.GetLength(0) / 2, cells.GetLength(1) / 2].Position.Clone(), Configuration.SnackHeadTextures);
 
             this.World = new World(snackHead, cells);
 
@@ -91,8 +92,8 @@ namespace SnackGame.Monogame
 
                     if (i == 0 ||
                         j == 0 ||
-                        i == Configuration.WorldSize.X - 1 ||
-                        j == Configuration.WorldSize.Y - 1)
+                        i == x - 1 ||
+                        j == y - 1)
                     {
                         cells[i, j].State = CellState.Border;
                     }

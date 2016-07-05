@@ -7,8 +7,20 @@ using System.Threading.Tasks;
 
 namespace SnackGame.Entities
 {
-    public class Position : IComparable, IComparable<Position>
+    public class Position : IComparable, IComparable<Position>, ICloneable
     {
+#region clone
+
+        public Position Clone()
+        {
+            return new Position(this.X, this.Y);
+        }
+        object ICloneable.Clone()
+        {
+            return (object)this.Clone();
+        }
+
+#endregion clone
         public int X {get;set;}
         public int Y { get; set; }
 
@@ -80,6 +92,8 @@ namespace SnackGame.Entities
 
         public override int GetHashCode() 
             => this.X ^ this.Y;
+
+        
         #endregion equals
 
     }
