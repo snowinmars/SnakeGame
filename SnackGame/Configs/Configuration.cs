@@ -31,7 +31,7 @@ namespace Configs
         {
             Configuration.CellTextures = new Dictionary<CellState, Texture2D>
             {
-                { CellState.None, graphicsDevice.CreateTexture(Configuration.CellSize.X, Configuration.CellSize.Y, Color.Blue) },
+                { CellState.None, graphicsDevice.CreateTexture(Configuration.CellSize.X, Configuration.CellSize.Y, Color.LightBlue) },
                 { CellState.Snake, graphicsDevice.CreateTexture(Configuration.CellSize.X, Configuration.CellSize.Y, Color.LightYellow) },
                 { CellState.Border, graphicsDevice.CreateTexture(Configuration.CellSize.X, Configuration.CellSize.Y, Color.Gray) },
                 { CellState.PositivePrice, graphicsDevice.CreateTexture(Configuration.CellSize.X, Configuration.CellSize.Y, Color.Green) },

@@ -43,6 +43,8 @@ namespace CnackGame.Core
 
         public void Update(GameTime gameTime, World world)
         {
+            this.CheckHedgehog(world.Cells);
+
             this.Update(gameTime, world.SnackHead);
 
             foreach (var cell in world.Cells)
@@ -102,9 +104,56 @@ namespace CnackGame.Core
 
                 if (hor == i && ver == j)
                 {
-                    world.SnakeIncrease(hor, ver, 40);
+                    world.SnakeIncrease(hor, ver, 12);
                 }
             }
+        }
+
+        private void CheckHedgehog(Cell[,] cells)
+        {
+            if (cells.GetLength(0) < 9 || cells.GetLength(1) < 9)
+            {
+                return;
+            }
+
+            for (int i = 4; i < 7; i++)
+            {
+                for (int j = 3; j < 7; j++)
+                {
+
+                    if (cells[i, j].State != CellState.Snake)
+                    {
+                        return;
+                    }
+                }
+            }
+            cells[1, 6].State = CellState.PositivePrice;
+
+            cells[2, 6].State = CellState.PositivePrice;
+            cells[2, 5].State = CellState.PositivePrice;
+
+            cells[3, 6].State = CellState.PositivePrice;
+            cells[3, 3].State = CellState.PositivePrice;
+            cells[3, 4].State = CellState.PositivePrice;
+
+            cells[4, 6].State = CellState.PositivePrice;
+            cells[4, 5].State = CellState.PositivePrice;
+            cells[4, 4].State = CellState.PositivePrice;
+            cells[4, 3].State = CellState.PositivePrice;
+
+            cells[5, 6].State = CellState.PositivePrice;
+            cells[5, 5].State = CellState.PositivePrice;
+            cells[5, 4].State = CellState.PositivePrice;
+            cells[5, 3].State = CellState.PositivePrice;
+
+            cells[6, 6].State = CellState.PositivePrice;
+            cells[6, 5].State = CellState.PositivePrice;
+            cells[6, 4].State = CellState.PositivePrice;
+            cells[6, 3].State = CellState.PositivePrice;
+
+            cells[7, 6].State = CellState.PositivePrice;
+            cells[7, 5].State = CellState.PositivePrice;
+            cells[7, 4].State = CellState.PositivePrice;
         }
 
         public void Update(GameTime gameTime, Cell cell)
