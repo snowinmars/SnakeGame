@@ -34,7 +34,8 @@ namespace Configs
             {
                 { CellState.None, graphicsDevice.CreateTexture(Configuration.CellSize.X, Configuration.CellSize.Y, Color.Blue) },
                 { CellState.Snake, graphicsDevice.CreateTexture(Configuration.CellSize.X, Configuration.CellSize.Y, Color.LightYellow) },
-                { CellState.Border, graphicsDevice.CreateTexture(Configuration.CellSize.X, Configuration.CellSize.Y, Color.Gray) }
+                { CellState.Border, graphicsDevice.CreateTexture(Configuration.CellSize.X, Configuration.CellSize.Y, Color.Gray) },
+                { CellState.PositivePrice, graphicsDevice.CreateTexture(Configuration.CellSize.X, Configuration.CellSize.Y, Color.Green) },
             };
 
             Texture2D texture = graphicsDevice.CreateTexture(Configuration.CellSize.X, Configuration.CellSize.Y, Color.Yellow);

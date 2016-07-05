@@ -11,5 +11,6 @@ namespace SnackGame.Entities.Enums
         None = 0,
         Border = 1,
         Snake = 2,
+        PositivePrice = 3,
     }
 }

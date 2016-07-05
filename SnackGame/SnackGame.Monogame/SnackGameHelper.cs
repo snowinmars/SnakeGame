@@ -37,17 +37,56 @@ namespace SnackGame.Monogame
             }
 
             TimeSpan time = gameTime.TotalGameTime;
+            double diffTime = time.TotalMilliseconds - pr.TotalMilliseconds;
 
-            if (time.TotalMilliseconds - pr.TotalMilliseconds > Configuration.GameSpeed)
+            if (diffTime > Configuration.GameSpeed)
             {
                 SnackGameHelper.Move(world);
 
                 pr = time;
             }
+
+            bool found = false;
+
+            int i = 0;
+            int j = 0;
+            // TODO optimize
+            for (i = 0; i < Configuration.WorldSize.X; i++)
+            {
+                for (j = 0; j < Configuration.WorldSize.Y; j++)
+                {
+                    if (world.Cells[i, j].State == CellState.PositivePrice)
+                    {
+                        found = true;
+                        goto breakcycles;
+                    }
+                }
+            }
+        breakcycles:;
+
+            if (diffTime > Configuration.GameSpeed)
+            {
+                if (!found)
+                {
+                    world.Cells[Random.Next(1, world.Cells.GetLength(0) - 1), Random.Next(1, world.Cells.GetLength(1) - 1)].State = CellState.PositivePrice;
+                }
+                else
+                {
+                    // TODO to snake prop
+                    int hor = world.SnackHead.Position.X / Configuration.CellSize.X;
+                    int ver = world.SnackHead.Position.Y / Configuration.CellSize.Y;
+
+                    if (hor == i && ver == j)
+                    {
+                        world.SnakeIncrease(hor, ver, 1);
+                    }
+                }
+            }
         }
 
         private static void Move(World world)
         {
+            // TODO to snake prop
             int hor = world.SnackHead.Position.X / Configuration.CellSize.X;
             int ver = world.SnackHead.Position.Y / Configuration.CellSize.Y;
 
