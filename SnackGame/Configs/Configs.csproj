@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SnackGame.Enums\SnackGame.Enums.csproj">
-      <Project>{8E4BCFC3-5167-45A6-8241-A3976DBDF98E}</Project>
+      <Project>{8e4bcfc3-5167-45a6-8241-a3976dbdf98e}</Project>
       <Name>SnackGame.Enums</Name>
     </ProjectReference>
   </ItemGroup>
