@@ -48,20 +48,24 @@ namespace CnackGame.Core
 
             double diffTime = this.MovePlayerDiscretely(gameTime, world);
 
-            // try to found food
-
-            int i = 0;
-            int j = 0;
-            Position foodPosition = UpdateCore.TryToCreateFood(world, i, j);
+            Position cell = UpdateCore.TryToFindFreeCell(world);
 
             if (diffTime <= Configuration.GameSpeed)
             {
                 return;
             }
 
-            // try to generate food
+            this.GenerateFoodInFreeCell(world, cell);
+        }
 
-            if (object.ReferenceEquals(foodPosition, null))
+        private bool IsCellFree(Position pos)
+        {
+            return !object.ReferenceEquals(pos, null);
+        }
+
+        private void GenerateFoodInFreeCell(World world, Position freeCell)
+        {
+            if (object.ReferenceEquals(freeCell, null))
             {
                 Cell cell = world.Cells[this.Random.Next(1, world.Cells.GetLength(0) - 1), this.Random.Next(1, world.Cells.GetLength(1) - 1)];
 
@@ -79,19 +83,19 @@ namespace CnackGame.Core
                 int hor = (int)Math.Floor((float)world.SnackHead.Position.X / (Configuration.CellSize.X + 1));
                 int ver = (int)Math.Floor((float)world.SnackHead.Position.Y / (Configuration.CellSize.Y + 1));
 
-                if (hor == foodPosition.X && ver == foodPosition.Y)
+                if (hor == freeCell.X && ver == freeCell.Y)
                 {
                     world.SnakeIncrease(hor, ver, 12);
                 }
             }
         }
 
-        private static Position TryToCreateFood(World world, int i, int j)
+        private static Position TryToFindFreeCell(World world)
         {
             // TODO optimize
-            for (i = 0; i < Configuration.WorldSize.X; i++)
+            for (int i = 0; i < Configuration.WorldSize.X; i++)
             {
-                for (j = 0; j < Configuration.WorldSize.Y; j++)
+                for (int j = 0; j < Configuration.WorldSize.Y; j++)
                 {
                     if (world.Cells[i, j].State == CellState.PositivePrice)
                     {
