@@ -16,7 +16,7 @@ namespace CnackGame.Core
                 Draw(spriteBatch, cell);
             }
 
-            Draw(spriteBatch, world.SnackHead);
+            this.Draw(spriteBatch, world.SnackHead);
         }
 
         public void Draw(SpriteBatch spriteBatch, Cell cell)

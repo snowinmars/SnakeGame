@@ -16,11 +16,11 @@ namespace SnackGame.Monogame
         #region Private Fields
 
         private readonly GraphicsDeviceManager graphics;
-        private DrawCore drawCore = new DrawCore();
+        private readonly DrawCore drawCore = new DrawCore();
         private SpriteBatch spriteBatch;
 
         // TODO to DI
-        private UpdateCore updateCore = new UpdateCore();
+        private readonly UpdateCore updateCore = new UpdateCore();
 
         private World world;
 

@@ -99,14 +99,6 @@ namespace SnackGame.Entities
             return this.CompareTo(pos) == 0;
         }
 
-        public override int GetHashCode()
-        {
-            unchecked
-            {
-                return (this.X * 397) ^ this.Y;
-            }
-        }
-
         #endregion equals
     }
 }
