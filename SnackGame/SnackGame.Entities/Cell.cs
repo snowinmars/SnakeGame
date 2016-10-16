@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using SnackGame.Enums;
 using System.Collections.Generic;
+using SandS.Algorithm.Library.PositionNamespace;
 
 namespace SnackGame.Entities
 {

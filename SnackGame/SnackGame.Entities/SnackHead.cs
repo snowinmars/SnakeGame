@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using SnackGame.Enums;
 using System.Collections.Generic;
+using SandS.Algorithm.Library.PositionNamespace;
 
 namespace SnackGame.Entities
 {
@@ -22,7 +23,7 @@ namespace SnackGame.Entities
 
         public Position Position { get; set; }
 
-        public IDictionary<Direction, Texture2D> Textures { get; set; }
+        public IDictionary<Direction, Texture2D> Textures { get; private set; }
 
         public Direction Direction { get; set; }
     }

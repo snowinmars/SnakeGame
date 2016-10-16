@@ -3,6 +3,7 @@ using Configs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SandS.Algorithm.Library.PositionNamespace;
 using SnackGame.Entities;
 using SnackGame.Enums;
 
@@ -80,7 +81,8 @@ namespace SnackGame.Monogame
 
             Cell[,] cells = SnackGame.GenerateWorld();
 
-            SnackHead snackHead = new SnackHead(cells[cells.GetLength(0) / 2, cells.GetLength(1) / 2].Position.Clone(), Configuration.SnackHeadTextures);
+            Position center = cells[cells.GetLength(0) / 2, cells.GetLength(1) / 2].Position;
+            SnackHead snackHead = new SnackHead(center.Clone(), Configuration.SnackHeadTextures);
 
             this.world = new World(snackHead, cells);
         }
@@ -91,8 +93,7 @@ namespace SnackGame.Monogame
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed ||
-                Keyboard.GetState().IsKeyDown(Keys.Escape))
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 this.Exit();
             }
