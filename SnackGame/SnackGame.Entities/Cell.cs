@@ -18,6 +18,6 @@ namespace SnackGame.Entities
 
         public CellState State { get; set; }
 
-        public IDictionary<CellState, Texture2D> Textures { get; set; }
+        public IDictionary<CellState, Texture2D> Textures { get; private set; }
     }
 }

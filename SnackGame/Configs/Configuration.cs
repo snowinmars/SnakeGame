@@ -8,8 +8,8 @@ namespace Configs
 {
     public static class Configuration
     {
-        public static IDictionary<CellState, Texture2D> CellTextures;
-        public static IDictionary<Direction, Texture2D> SnackHeadTextures;
+        public static IDictionary<CellState, Texture2D> CellTextures { get; private set; }
+        public static IDictionary<Direction, Texture2D> SnackHeadTextures { get; private set; }
 
         static Configuration()
         {
@@ -21,11 +21,11 @@ namespace Configs
                                                     Configuration.CellSize.Y + Configuration.CellMagrin.Y);
         }
 
-        public static Point CellMagrin { get; set; }
-        public static Point CellSize { get; set; }
-        public static Point WorldSize { get; set; }
-        public static int GameSpeed { get; set; }
-        public static Point SnackHeadStep { get; set; }
+        public static Point CellMagrin { get; private set; }
+        public static Point CellSize { get; private set; }
+        public static Point WorldSize { get; private set; }
+        public static int GameSpeed { get; private set; }
+        public static Point SnackHeadStep { get; private set; }
 
         public static void Init(GraphicsDevice graphicsDevice)
         {

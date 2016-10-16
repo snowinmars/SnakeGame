@@ -60,7 +60,7 @@ namespace SnackGame.Monogame
         protected override void Initialize()
         {
             this.IsMouseVisible = true;
-            this.graphics.IsFullScreen = true;
+            //this.graphics.IsFullScreen = true;
 
             this.ScreenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             this.ScreenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;

@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using SnackGame.Entities;
 using SnackGame.Enums;
 using System;
+using SandS.Algorithm.Library.PositionNamespace;
 
 namespace CnackGame.Core
 {
@@ -45,39 +46,13 @@ namespace CnackGame.Core
         {
             this.Update(gameTime, world.SnackHead);
 
-            foreach (var cell in world.Cells)
-            {
-                this.Update(gameTime, cell);
-            }
-
-            TimeSpan time = gameTime.TotalGameTime;
-            double diffTime = time.TotalMilliseconds - this.previousTime.TotalMilliseconds;
-
-            if (diffTime > Configuration.GameSpeed)
-            {
-                this.Move(world);
-                this.previousTime = time;
-            }
+            double diffTime = this.MovePlayerDiscretely(gameTime, world);
 
             // try to found food
 
-            bool found = false;
-
-            int i;
+            int i = 0;
             int j = 0;
-            // TODO optimize
-            for (i = 0; i < Configuration.WorldSize.X; i++)
-            {
-                for (j = 0; j < Configuration.WorldSize.Y; j++)
-                {
-                    if (world.Cells[i, j].State == CellState.PositivePrice)
-                    {
-                        found = true;
-                        goto breakcycles;
-                    }
-                }
-            }
-        breakcycles:
+            Position foodPosition = UpdateCore.TryToCreateFood(world, i, j);
 
             if (diffTime <= Configuration.GameSpeed)
             {
@@ -86,7 +61,7 @@ namespace CnackGame.Core
 
             // try to generate food
 
-            if (!found)
+            if (object.ReferenceEquals(foodPosition, null))
             {
                 Cell cell = world.Cells[this.Random.Next(1, world.Cells.GetLength(0) - 1), this.Random.Next(1, world.Cells.GetLength(1) - 1)];
 
@@ -104,15 +79,42 @@ namespace CnackGame.Core
                 int hor = (int)Math.Floor((float)world.SnackHead.Position.X / (Configuration.CellSize.X + 1));
                 int ver = (int)Math.Floor((float)world.SnackHead.Position.Y / (Configuration.CellSize.Y + 1));
 
-                if (hor == i && ver == j)
+                if (hor == foodPosition.X && ver == foodPosition.Y)
                 {
                     world.SnakeIncrease(hor, ver, 12);
                 }
             }
         }
 
-        public void Update(GameTime gameTime, Cell cell)
+        private static Position TryToCreateFood(World world, int i, int j)
         {
+            // TODO optimize
+            for (i = 0; i < Configuration.WorldSize.X; i++)
+            {
+                for (j = 0; j < Configuration.WorldSize.Y; j++)
+                {
+                    if (world.Cells[i, j].State == CellState.PositivePrice)
+                    {
+                        return new Position(i,j);
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        private double MovePlayerDiscretely(GameTime gameTime, World world)
+        {
+            TimeSpan time = gameTime.TotalGameTime;
+            double diffTime = time.TotalMilliseconds - this.previousTime.TotalMilliseconds;
+
+            if (diffTime > Configuration.GameSpeed)
+            {
+                this.Move(world);
+                this.previousTime = time;
+            }
+
+            return diffTime;
         }
 
         public void Update(GameTime gameTime, SnackHead head)
