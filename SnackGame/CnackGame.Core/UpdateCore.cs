@@ -61,6 +61,8 @@ namespace CnackGame.Core
                 this.previousTime = time;
             }
 
+            // try to found food
+
             bool found = false;
 
             int i;
@@ -83,6 +85,8 @@ namespace CnackGame.Core
             {
                 return;
             }
+
+            // try to generate food
 
             if (!found)
             {
