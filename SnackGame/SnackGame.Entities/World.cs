@@ -1,6 +1,6 @@
-﻿using System;
+﻿using SnackGame.Enums;
+using System;
 using System.Collections.Generic;
-using SnackGame.Enums;
 
 namespace SnackGame.Entities
 {

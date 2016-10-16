@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using System.Collections.Generic;
 using SnackGame.Enums;
+using System.Collections.Generic;
 
 namespace SnackGame.Entities
 {

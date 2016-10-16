@@ -32,8 +32,6 @@ namespace SnackGame.Monogame
         {
             this.graphics = new GraphicsDeviceManager(this);
             this.Content.RootDirectory = "Content";
-
-            
         }
 
         #endregion Public Constructors
@@ -102,7 +100,7 @@ namespace SnackGame.Monogame
             this.spriteBatch = new SpriteBatch(this.GraphicsDevice);
 
             Configuration.Init(this.GraphicsDevice);
-            
+
             // TODO to ask
             Cell[,] cells = SnackGame.GenerateWorld();
 

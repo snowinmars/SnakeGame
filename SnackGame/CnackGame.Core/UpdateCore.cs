@@ -77,7 +77,7 @@ namespace CnackGame.Core
                     }
                 }
             }
-            breakcycles:
+        breakcycles:
 
             if (diffTime <= Configuration.GameSpeed)
             {
@@ -134,33 +134,33 @@ namespace CnackGame.Core
 
             switch (world.SnackHead.Direction)
             {
-                case Direction.Up:
-                    if (world.Cells[hor, ver - 1].State != CellState.Border)
-                    {
-                        world.SnackHead.Position.Y -= Configuration.SnackHeadStep.Y;
-                    }
-                    break;
+            case Direction.Up:
+                if (world.Cells[hor, ver - 1].State != CellState.Border)
+                {
+                    world.SnackHead.Position.Y -= Configuration.SnackHeadStep.Y;
+                }
+                break;
 
-                case Direction.Right:
-                    if (world.Cells[hor + 1, ver].State != CellState.Border)
-                    {
-                        world.SnackHead.Position.X += Configuration.SnackHeadStep.X;
-                    }
-                    break;
+            case Direction.Right:
+                if (world.Cells[hor + 1, ver].State != CellState.Border)
+                {
+                    world.SnackHead.Position.X += Configuration.SnackHeadStep.X;
+                }
+                break;
 
-                case Direction.Down:
-                    if (world.Cells[hor, ver + 1].State != CellState.Border)
-                    {
-                        world.SnackHead.Position.Y += Configuration.SnackHeadStep.Y;
-                    }
-                    break;
+            case Direction.Down:
+                if (world.Cells[hor, ver + 1].State != CellState.Border)
+                {
+                    world.SnackHead.Position.Y += Configuration.SnackHeadStep.Y;
+                }
+                break;
 
-                case Direction.Left:
-                    if (world.Cells[hor - 1, ver].State != CellState.Border)
-                    {
-                        world.SnackHead.Position.X -= Configuration.SnackHeadStep.X;
-                    }
-                    break;
+            case Direction.Left:
+                if (world.Cells[hor - 1, ver].State != CellState.Border)
+                {
+                    world.SnackHead.Position.X -= Configuration.SnackHeadStep.X;
+                }
+                break;
             }
         }
 
@@ -176,21 +176,21 @@ namespace CnackGame.Core
                     // due to this are the only keys I'm interested in
                     switch (key)
                     {
-                        case Keys.Left:
-                            head.Direction = Direction.Left;
-                            break;
+                    case Keys.Left:
+                        head.Direction = Direction.Left;
+                        break;
 
-                        case Keys.Up:
-                            head.Direction = Direction.Up;
-                            break;
+                    case Keys.Up:
+                        head.Direction = Direction.Up;
+                        break;
 
-                        case Keys.Right:
-                            head.Direction = Direction.Right;
-                            break;
+                    case Keys.Right:
+                        head.Direction = Direction.Right;
+                        break;
 
-                        case Keys.Down:
-                            head.Direction = Direction.Down;
-                            break;
+                    case Keys.Down:
+                        head.Direction = Direction.Down;
+                        break;
                     }
                 }
             }
