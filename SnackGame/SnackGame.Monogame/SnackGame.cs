@@ -79,7 +79,7 @@ namespace SnackGame.Monogame
             // can not init here, due to I need textures for entities in ctors
 
             this.IsMouseVisible = true;
-            this.graphics.IsFullScreen = true;
+            //this.graphics.IsFullScreen = true;
 
             this.ScreenWidth = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             this.ScreenHeight = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;

@@ -13,7 +13,7 @@ namespace Configs
 
         static Configuration()
         {
-            Configuration.WorldSize = new Point(90,50); // in cells
+            Configuration.WorldSize = new Point(20,10); // in cells
             Configuration.CellSize = new Point(20, 20);
             Configuration.CellMagrin = new Point(1, 1);
             Configuration.GameSpeed = 300;
