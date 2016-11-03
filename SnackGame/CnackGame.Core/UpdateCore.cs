@@ -79,7 +79,6 @@ namespace CnackGame.Core
             }
             else
             {
-                // TODO to snake prop
                 int hor = this.Floor(world.SnackHead.Position.X, Configuration.CellSize.X + 1);
                 int ver = this.Floor(world.SnackHead.Position.Y, Configuration.CellSize.Y + 1);
 
@@ -137,7 +136,6 @@ namespace CnackGame.Core
 
         private void Move(World world)
         {
-            // TODO to snake prop
             int hor = this.Floor(world.SnackHead.Position.X, Configuration.CellSize.X + 1);
             int ver = this.Floor(world.SnackHead.Position.Y, Configuration.CellSize.Y + 1);
 
