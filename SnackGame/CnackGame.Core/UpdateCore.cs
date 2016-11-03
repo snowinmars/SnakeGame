@@ -40,7 +40,6 @@ namespace CnackGame.Core
 
         #endregion Public Properties
 
-        #region Public Methods
 
         public void Update(GameTime gameTime, World world)
         {
@@ -56,11 +55,6 @@ namespace CnackGame.Core
             }
 
             this.GenerateFoodInFreeCell(world, cell);
-        }
-
-        private bool IsCellFree(Position pos)
-        {
-            return !object.ReferenceEquals(pos, null);
         }
 
         private void GenerateFoodInFreeCell(World world, Position freeCell)
@@ -130,11 +124,13 @@ namespace CnackGame.Core
             this.ReadKey(head);
         }
 
-        #endregion Public Methods
-
-        #region Private Methods
 
         private void Move(World world)
+        {
+            this.MoveSnake(world);
+        }
+
+        private void MoveSnake(World world)
         {
             int hor = this.Floor(world.SnackHead.Position.X, Configuration.CellSize.X + 1);
             int ver = this.Floor(world.SnackHead.Position.Y, Configuration.CellSize.Y + 1);
@@ -171,16 +167,16 @@ namespace CnackGame.Core
                 }
                 break;
 
-		    default:
+            default:
                 {
-                    throw new ArgumentOutOfRangeException(paramName: nameof(world.SnackHead.Direction), 
-                                                            actualValue: world.SnackHead.Direction, 
+                    throw new ArgumentOutOfRangeException(paramName: nameof(world.SnackHead.Direction),
+                                                            actualValue: world.SnackHead.Direction,
                                                             message: string.Empty);
                 }
             }
         }
 
-	    private void ReadKey(SnackHead head)
+        private void ReadKey(SnackHead head)
 	    {
 		    KeyboardState state = Keyboard.GetState();
 
@@ -213,7 +209,5 @@ namespace CnackGame.Core
 
 		    this.previousState = state;
 	    }
-
-	    #endregion Private Methods
     }
 }

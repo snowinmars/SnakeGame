@@ -17,7 +17,7 @@ namespace Configs
             Configuration.WorldSize = new Position(60, 40); // in cells
             Configuration.CellSize = new Position(20, 20); // in pixels
             Configuration.CellMagrin = new Position(1, 1);
-            Configuration.GameSpeed = 300;
+            Configuration.GameSpeed = 100; // less mean more
             Configuration.SnackHeadStep = new Position(Configuration.CellSize.X + Configuration.CellMagrin.X,
                                                     Configuration.CellSize.Y + Configuration.CellMagrin.Y);
         }
