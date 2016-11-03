@@ -31,7 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MonoGame.Framework, Version=3.5.1.1679, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\packages\MonoGame.3.0.1\build\net40\MonoGame.Framework.dll</HintPath>
+    </Reference>
     <Reference Include="SandS.Algorithm.Library.Other, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SandS.Algorithm.Library.Other.2.0.3.01\lib\SandS.Algorithm.Library.Other.dll</HintPath>
       <Private>True</Private>

@@ -37,6 +37,9 @@
       <HintPath>..\packages\snowinmars.Extensions.1.0.3\lib\Algorithms.Extensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SandS.Algorithm.Library.Other">
+      <HintPath>..\packages\SandS.Algorithm.Library.Other.2.0.3.01\lib\SandS.Algorithm.Library.Other.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />

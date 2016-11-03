@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackGame.Entities", "SnackGame.Entities\SnackGame.Entities.csproj", "{EE71C698-1C35-40AF-95FC-398221D5DB81}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackGame.Monogame", "SnackGame.Monogame\SnackGame.Monogame.csproj", "{86348CCB-64B2-4534-ACDF-78CC0AC856E6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configs", "Configs\Configs.csproj", "{EB3E046F-A979-4C97-B83E-1860565D4F81}"
 EndProject
@@ -14,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CnackGame.Core", "CnackGame.Core\CnackGame.Core.csproj", "{6A7F057D-2902-4CEF-B741-E965A53C3B64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackGame.NinjectBinding", "SnackGame.NinjectBinding\SnackGame.NinjectBinding.csproj", "{B078C4D3-3FBE-4D53-9F30-542D1B38D847}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnackGame.Monogame", "SnackGame.Monogame\SnackGame.Monogame.csproj", "{86348CCB-64B2-4534-ACDF-78CC0AC856E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,13 +31,6 @@ Global
 		{EE71C698-1C35-40AF-95FC-398221D5DB81}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EE71C698-1C35-40AF-95FC-398221D5DB81}.Release|x86.ActiveCfg = Release|Any CPU
 		{EE71C698-1C35-40AF-95FC-398221D5DB81}.Release|x86.Build.0 = Release|Any CPU
-		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Debug|Any CPU.Build.0 = Debug|x86
-		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Debug|x86.ActiveCfg = Debug|x86
-		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Debug|x86.Build.0 = Debug|x86
-		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Release|Any CPU.ActiveCfg = Release|x86
-		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Release|x86.ActiveCfg = Release|x86
-		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Release|x86.Build.0 = Release|x86
 		{EB3E046F-A979-4C97-B83E-1860565D4F81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EB3E046F-A979-4C97-B83E-1860565D4F81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB3E046F-A979-4C97-B83E-1860565D4F81}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -70,6 +63,13 @@ Global
 		{B078C4D3-3FBE-4D53-9F30-542D1B38D847}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B078C4D3-3FBE-4D53-9F30-542D1B38D847}.Release|x86.ActiveCfg = Release|Any CPU
 		{B078C4D3-3FBE-4D53-9F30-542D1B38D847}.Release|x86.Build.0 = Release|Any CPU
+		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Debug|Any CPU.Build.0 = Debug|x86
+		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Debug|x86.ActiveCfg = Debug|x86
+		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Debug|x86.Build.0 = Debug|x86
+		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Release|Any CPU.ActiveCfg = Release|x86
+		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Release|x86.ActiveCfg = Release|x86
+		{86348CCB-64B2-4534-ACDF-78CC0AC856E6}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

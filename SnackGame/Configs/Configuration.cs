@@ -1,8 +1,9 @@
 ﻿using Algorithms.Extensions;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using SnackGame.Enums;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using SandS.Algorithm.Library.PositionNamespace;
 
 namespace Configs
 {
@@ -13,19 +14,19 @@ namespace Configs
 
         static Configuration()
         {
-            Configuration.WorldSize = new Point(20, 10); // in cells
-            Configuration.CellSize = new Point(20, 20);
-            Configuration.CellMagrin = new Point(1, 1);
+            Configuration.WorldSize = new Position(20, 10); // in cells
+            Configuration.CellSize = new Position(20, 20);
+            Configuration.CellMagrin = new Position(1, 1);
             Configuration.GameSpeed = 300;
-            Configuration.SnackHeadStep = new Point(Configuration.CellSize.X + Configuration.CellMagrin.X,
+            Configuration.SnackHeadStep = new Position(Configuration.CellSize.X + Configuration.CellMagrin.X,
                                                     Configuration.CellSize.Y + Configuration.CellMagrin.Y);
         }
 
-        public static Point CellMagrin { get; private set; }
-        public static Point CellSize { get; private set; }
-        public static Point WorldSize { get; private set; }
+        public static Position CellMagrin { get; private set; }
+        public static Position CellSize { get; private set; }
+        public static Position WorldSize { get; private set; }
         public static int GameSpeed { get; private set; }
-        public static Point SnackHeadStep { get; private set; }
+        public static Position SnackHeadStep { get; private set; }
 
         public static void Init(GraphicsDevice graphicsDevice)
         {
