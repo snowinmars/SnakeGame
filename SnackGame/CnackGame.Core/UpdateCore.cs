@@ -172,7 +172,11 @@ namespace CnackGame.Core
                 break;
 
 		    default:
-			    throw new ArgumentOutOfRangeException(nameof(world.SnackHead.Direction), world.SnackHead.Direction, string.Empty);
+                {
+                    throw new ArgumentOutOfRangeException(paramName: nameof(world.SnackHead.Direction), 
+                                                            actualValue: world.SnackHead.Direction, 
+                                                            message: string.Empty);
+                }
             }
         }
 
