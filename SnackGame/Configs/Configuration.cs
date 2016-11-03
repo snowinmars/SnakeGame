@@ -14,8 +14,8 @@ namespace Configs
 
         static Configuration()
         {
-            Configuration.WorldSize = new Position(20, 10); // in cells
-            Configuration.CellSize = new Position(20, 20);
+            Configuration.WorldSize = new Position(60, 40); // in cells
+            Configuration.CellSize = new Position(20, 20); // in pixels
             Configuration.CellMagrin = new Position(1, 1);
             Configuration.GameSpeed = 300;
             Configuration.SnackHeadStep = new Position(Configuration.CellSize.X + Configuration.CellMagrin.X,

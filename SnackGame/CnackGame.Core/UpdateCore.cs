@@ -13,11 +13,11 @@ namespace CnackGame.Core
         #region Private Fields
 
         private readonly Keys[] allowedKeys = {
-                                                        Keys.Up,
-                                                        Keys.Down,
-                                                        Keys.Left,
-                                                        Keys.Right,
-                                                    };
+                                                Keys.Up,
+                                                Keys.Down,
+                                                Keys.Left,
+                                                Keys.Right,
+                                               };
 
         private KeyboardState previousState;
 
@@ -80,14 +80,19 @@ namespace CnackGame.Core
             else
             {
                 // TODO to snake prop
-                int hor = (int)Math.Floor((float)world.SnackHead.Position.X / (Configuration.CellSize.X + 1));
-                int ver = (int)Math.Floor((float)world.SnackHead.Position.Y / (Configuration.CellSize.Y + 1));
+                int hor = this.Floor(world.SnackHead.Position.X, Configuration.CellSize.X + 1);
+                int ver = this.Floor(world.SnackHead.Position.Y, Configuration.CellSize.Y + 1);
 
                 if (hor == freeCell.X && ver == freeCell.Y)
                 {
                     world.SnakeIncrease(hor, ver, 12);
                 }
             }
+        }
+
+        public int Floor(int lhs, int rhs)
+        {
+            return (int) Math.Floor((float) lhs/rhs);
         }
 
         private static Position TryToFindFreeCell(World world)
@@ -133,8 +138,8 @@ namespace CnackGame.Core
         private void Move(World world)
         {
             // TODO to snake prop
-            int hor = (int)Math.Floor((float)world.SnackHead.Position.X / (Configuration.CellSize.X + 1));
-            int ver = (int)Math.Floor((float)world.SnackHead.Position.Y / (Configuration.CellSize.Y + 1));
+            int hor = this.Floor(world.SnackHead.Position.X, Configuration.CellSize.X + 1);
+            int ver = this.Floor(world.SnackHead.Position.Y, Configuration.CellSize.Y + 1);
 
             world.SnakeOn(hor, ver);
 
@@ -167,43 +172,46 @@ namespace CnackGame.Core
                     world.SnackHead.Position.X -= Configuration.SnackHeadStep.X;
                 }
                 break;
+
+		    default:
+			    throw new ArgumentOutOfRangeException(nameof(world.SnackHead.Direction), world.SnackHead.Direction, string.Empty);
             }
         }
 
-        private void ReadKey(SnackHead head)
-        {
-            KeyboardState state = Keyboard.GetState();
+	    private void ReadKey(SnackHead head)
+	    {
+		    KeyboardState state = Keyboard.GetState();
 
-            foreach (var key in this.allowedKeys)
-            {
-                if (state.IsKeyUp(key) && this.previousState.IsKeyDown(key))
-                {
-                    // ReSharper disable once SwitchStatementMissingSomeCases
-                    // due to this are the only keys I'm interested in
-                    switch (key)
-                    {
-                    case Keys.Left:
-                        head.Direction = Direction.Left;
-                        break;
+		    foreach (var key in this.allowedKeys)
+		    {
+			    if (state.IsKeyUp(key) && this.previousState.IsKeyDown(key))
+			    {
+				    // ReSharper disable once SwitchStatementMissingSomeCases
+				    // due to this are the only keys I'm interested in
+				    switch (key)
+				    {
+					    case Keys.Left:
+						    head.Direction = Direction.Left;
+						    break;
 
-                    case Keys.Up:
-                        head.Direction = Direction.Up;
-                        break;
+					    case Keys.Up:
+						    head.Direction = Direction.Up;
+						    break;
 
-                    case Keys.Right:
-                        head.Direction = Direction.Right;
-                        break;
+					    case Keys.Right:
+						    head.Direction = Direction.Right;
+						    break;
 
-                    case Keys.Down:
-                        head.Direction = Direction.Down;
-                        break;
-                    }
-                }
-            }
+					    case Keys.Down:
+						    head.Direction = Direction.Down;
+						    break;
+				    }
+			    }
+		    }
 
-            this.previousState = state;
-        }
+		    this.previousState = state;
+	    }
 
-        #endregion Private Methods
+	    #endregion Private Methods
     }
 }
